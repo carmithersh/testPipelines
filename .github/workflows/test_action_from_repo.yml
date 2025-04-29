@@ -13,7 +13,7 @@ jobs:
         uses: carmithersh/gh-action-checkout@main        
         with: 
           repo: 'carmithersh/test_action@3df21c32bade19faf0f04741abe125e3e3b25ef7'
-          token: ${{ secrets.MYPAT }}
+          gh-token: ${{ secrets.MYPAT }}
           rt-url: 'https://eldada.jfrog.io'
           rt-repo: 'gh-remote'
           rt-token: '2222'
