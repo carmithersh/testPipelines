@@ -16,7 +16,7 @@ jobs:
           gh-token: ${{ secrets.MYPAT }}
           rt-url: 'https://eldada.jfrog.io'
           rt-repo: 'gh-remote'
-          rt-token: '3333'
+          rt-token: '4444'
           destination-dir: 'destDir'
 
       - name: Hello world action step
