@@ -21,4 +21,7 @@ jobs:
       - name: look into filesystem
         run: |
          ls -ltr /home/runner/work/
+         echo "/home/runner/work/_actions:"
          ls -ltr /home/runner/work/_actions
+         echo "/home/runner/work/_actions/carmithersh:"
+         ls -ltr /home/runner/work/_actions/carmithersh
