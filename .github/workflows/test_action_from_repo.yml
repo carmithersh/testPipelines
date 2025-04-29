@@ -25,3 +25,6 @@ jobs:
          ls -ltr /home/runner/work/_actions
          echo "/home/runner/work/_actions/carmithersh:"
          ls -ltr /home/runner/work/_actions/carmithersh
+         echo "/home/runner/work/_actions/carmithersh/test_action:"
+         ls -ltr /home/runner/work/_actions/carmithersh/test_action
+         
