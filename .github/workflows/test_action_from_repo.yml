@@ -26,5 +26,5 @@ jobs:
          echo "/home/runner/work/_actions/carmithersh:"
          ls -ltr /home/runner/work/_actions/carmithersh
          echo "/home/runner/work/_actions/carmithersh/test_action:"
-         ls -ltr /home/runner/work/_actions/carmithersh/test_action
+         ls -ltr -R /home/runner/work/_actions/carmithersh/test_action
          
