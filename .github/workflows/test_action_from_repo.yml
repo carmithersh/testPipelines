@@ -17,7 +17,7 @@ jobs:
          echo "print all env"
          env
       - name: Install jfrog cli
-        id:   setup-cli
+        id: setup-cli
         uses: jfrog/setup-jfrog-cli@v4
         env:
           JF_URL: https://${{ vars.ARTIFACTORY_URL }}
@@ -30,9 +30,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:           
-          rt-url: 'https://eldada.jfrog.io'
+          rt-url: 'https://${{ vars.ARTIFACTORY_URL }}'
           rt-repo: 'gh-remote'
-          rt-token: '4444'
+          rt-token: ${{ steps.setup-cli.outputs.oidc-token }}
           gh-token: ${{ secrets.GHPAT }}
       
       - name: look into filesystem
