@@ -29,8 +29,8 @@ jobs:
          ls -ltr /home/runner/work/_actions
          echo "/home/runner/work/_actions/carmithersh:"
          ls -ltr /home/runner/work/_actions/carmithersh
-         echo "/home/runner/work/_actions"
-         ls -ltr -R /home/runner/work/_actions
+         echo "/home/runner/work/_actions/carmithersh/test_action"
+         ls -ltr -R /home/runner/work/_actions/carmithersh/test_action
          
       - name: Hello world action step
         id: hello
@@ -41,8 +41,8 @@ jobs:
           
       - name: look into filesystem
         run: |      
-         echo "/home/runner/work/_actions"
-         ls -ltr -R /home/runner/work/_actions
+         echo "/home/runner/work/_actions/carmithersh/test_action"
+         ls -ltr -R /home/runner/work/_actions/carmithersh/test_action
          
       # Use the output from the `hello` step
       - name: Get the output time
