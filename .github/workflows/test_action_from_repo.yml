@@ -18,16 +18,7 @@ jobs:
           rt-repo: 'gh-remote'
           rt-token: '4444'
           destination-dir: 'jfrog_actions'
-
-      - name: Hello world action step
-        id: hello
-        uses: ./destDir/carmithersh/test_action
-        with:
-          who-to-greet: 'Carmit'
-          token: ${{ secrets.MYPAT }}
-      # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+          
       - name: look into filesystem
         run: |
          #ls -ltr /home/runner/work/
@@ -36,5 +27,15 @@ jobs:
          #echo "/home/runner/work/_actions/carmithersh:"
          #ls -ltr /home/runner/work/_actions/carmithersh
          echo "./destDir:"
-         ls -ltr -R ./destDir
+         ls -ltr -R ./jfrog_actions
+         
+      - name: Hello world action step
+        id: hello
+        uses: ./jfrog_actions/carmithersh/test_action
+        with:
+          who-to-greet: 'Carmit'
+          token: ${{ secrets.MYPAT }}
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
          
