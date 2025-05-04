@@ -3,6 +3,7 @@ on: [push]
 permissions:
   actions: read # for detecting the Github Actions environment.
   contents: read
+  id-token: read
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
@@ -16,8 +17,7 @@ jobs:
       - name: gh-action-checkout
         id: checkout
         uses: carmithersh/gh-action-checkout@main        
-        with: 
-          gh-token: ${{ secrets.GHPAT }}
+        with:           
           rt-url: 'https://eldada.jfrog.io'
           rt-repo: 'gh-remote'
           rt-token: '4444'
