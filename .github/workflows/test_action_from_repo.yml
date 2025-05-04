@@ -23,6 +23,7 @@ jobs:
           rt-url: 'https://eldada.jfrog.io'
           rt-repo: 'gh-remote'
           rt-token: '4444'
+          gh-token: ${{ secrets.GHPAT }}
       
       - name: look into filesystem
         run: |
