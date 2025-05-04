@@ -17,12 +17,10 @@ jobs:
         id: checkout
         uses: carmithersh/gh-action-checkout@main        
         with: 
-          repo: 'carmithersh/test_action@3df21c32bade19faf0f04741abe125e3e3b25ef7'
           gh-token: ${{ secrets.GHPAT }}
           rt-url: 'https://eldada.jfrog.io'
           rt-repo: 'gh-remote'
           rt-token: '4444'
-          destination-dir: '/home/runner/work/_actions'
           
       - name: look into filesystem
         run: |
