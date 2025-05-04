@@ -32,6 +32,11 @@ jobs:
          echo "/home/runner/work/_actions/carmithersh/test_action"
          ls -ltr -R /home/runner/work/_actions/carmithersh/test_action
          
+      - name: Wait
+        uses: jakejarvis/wait-action@v0.1.1
+        with:    
+          time: 30s
+                 
       - name: Hello world action step
         id: hello
         uses: carmithersh/test_action@3df21c32bade19faf0f04741abe125e3e3b25ef7
