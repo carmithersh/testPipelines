@@ -17,7 +17,7 @@ jobs:
           rt-url: 'https://eldada.jfrog.io'
           rt-repo: 'gh-remote'
           rt-token: '4444'
-          destination-dir: 'destDir'
+          destination-dir: 'jfrog_actions'
 
       - name: Hello world action step
         id: hello
