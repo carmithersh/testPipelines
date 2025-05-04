@@ -16,11 +16,14 @@ jobs:
          
       - name: gh-action-checkout
         id: checkout
-        uses: carmithersh/gh-action-checkout@main        
+        uses: carmithersh/gh-action-checkout@main      
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:           
           rt-url: 'https://eldada.jfrog.io'
           rt-repo: 'gh-remote'
           rt-token: '4444'
+          gh-token: '$GITHUB_TOKEN'
       
       - name: look into filesystem
         run: |
