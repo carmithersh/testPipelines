@@ -7,12 +7,22 @@ permissions:
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
+    env:
+      ACTIONS_RUNNER_DEBUG: true
+      ACTIONS_STEP_DEBUG: true
     name: A job to say hello
     steps:
       - name: env
         run: |
          echo "print all env"
          env
+      - name: Install jfrog cli
+        id:   setup-cli
+        uses: jfrog/setup-jfrog-cli@v4
+        env:
+          JF_URL: https://${{ vars.ARTIFACTORY_URL }}
+        with:
+         oidc-provider-name: jfrog-github-oidc
          
       - name: gh-action-checkout
         id: checkout
