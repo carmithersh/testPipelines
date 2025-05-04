@@ -30,7 +30,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:           
-          rt-url: 'https://${{ vars.ARTIFACTORY_URL }}'
+          rt-url: ${{ vars.ARTIFACTORY_URL }}
           rt-repo: 'gh-remote'
           rt-token: ${{ steps.setup-cli.outputs.oidc-token }}
           gh-token: ${{ secrets.GHPAT }}
