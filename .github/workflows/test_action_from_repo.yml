@@ -21,10 +21,7 @@ jobs:
           rt-url: 'https://eldada.jfrog.io'
           rt-repo: 'gh-remote'
           rt-token: '4444'
-      - name: check if opa exists
-        id: check_opa
-        run: |
-          opa -h   
+      
       - name: look into filesystem
         run: |
          echo "/home/runner/work/_actions/carmithersh/test_action"
@@ -45,7 +42,10 @@ jobs:
         uses: open-policy-agent/setup-opa@v2
         with:
          version: latest  
-         
+      - name: check if opa exists
+        id: check_opa
+        run: |
+          opa -h   
       # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
