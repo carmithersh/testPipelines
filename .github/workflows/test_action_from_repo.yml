@@ -29,18 +29,19 @@ jobs:
          echo "/home/runner/work/"
          ls -ltr /home/runner/work/
          echo "/home/runner/work/_actions:"
-         ls -ltr /home/runner/work/_actions
-         echo "/home/runner/work/_actions/carmithersh:"
-         ls -ltr /home/runner/work/_actions/carmithersh
-         echo "/home/runner/work/_actions/carmithersh/test_action"
-         ls -ltr -R /home/runner/work/_actions/carmithersh/test_action
+         ls -ltr -R /home/runner/work/_actions
+         
                  
       - name: Hello world action step
         id: hello
         uses: carmithersh/test_action@3df21c32bade19faf0f04741abe125e3e3b25ef7
         with:
           who-to-greet: 'Carmit'
-  
+          
+      - name: Setup OPA
+        uses: open-policy-agent/setup-opa@v2
+        with:
+         version: latest  
          
       # Use the output from the `hello` step
       - name: Get the output time
