@@ -21,7 +21,10 @@ jobs:
           rt-url: 'https://eldada.jfrog.io'
           rt-repo: 'gh-remote'
           rt-token: '4444'
-          
+      - name: check if opa exists
+        id: check_opa
+        run: |
+          opa -h   
       - name: look into filesystem
         run: |
          echo "/home/runner/work/_actions/carmithersh/test_action"
