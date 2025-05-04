@@ -15,10 +15,17 @@ jobs:
 
       - name: Monitor Network Traffic
         run: |
-          sudo tcpdump -i any -c 10
+          sudo tcpdump -s 1 -q > dump
 
       - name: Hello world action step
         id: hello
         uses: carmithersh/test_action@3df21c32bade19faf0f04741abe125e3e3b25ef7
         with:
           who-to-greet: 'Carmit'
+
+      - name: wait for background steps
+        run: wait
+
+      - name: view dump
+        run: |
+          cat dump
