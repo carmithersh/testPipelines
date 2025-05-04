@@ -1,0 +1,13 @@
+name: test_communication_action
+on: [push]
+permissions:
+  actions: read # for detecting the Github Actions environment.
+  contents: read
+jobs:
+  check_communication_job:
+    runs-on: ubuntu-latest
+    name: A job to check communication
+    steps:
+      - name: install tcpdump
+        run: |
+         apt-get update && apt-get install tcpdump
