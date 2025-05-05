@@ -4,6 +4,7 @@ permissions:
   actions: read # for detecting the Github Actions environment.
   contents: read
   id-token: write
+  attestations: write
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
