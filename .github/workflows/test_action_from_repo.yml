@@ -37,10 +37,8 @@ jobs:
       
       - name: look into filesystem
         run: |
-         echo "/home/runner/work/_actions/carmithersh/test_action"
-         ls -ltr /home/runner/work/_actions/carmithersh/test_action
-         echo "/home/runner/work/"
-         ls -ltr /home/runner/work/
+         echo "./jfrog-proxy/"
+         ls -ltr -R ./jfrog-proxy/         
          echo "/home/runner/work/_actions:"
          ls -ltr -R /home/runner/work/_actions
          
