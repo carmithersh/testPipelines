@@ -75,7 +75,6 @@ jobs:
         with:
           subject-name: ${{ vars.ARTIFACTORY_URL }}/${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}
           subject-digest: ${{ steps.build.outputs.digest }}
-          push-to-registry: true
     
       # print and get attestation bundle location into env var (optional)
       - name: print attestation bundle location
