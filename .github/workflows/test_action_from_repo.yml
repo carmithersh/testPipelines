@@ -37,6 +37,7 @@ jobs:
       
       - name: look into filesystem
         run: |
+         pwd
          echo "./jfrog-proxy/"
          ls -ltr -R ./jfrog-proxy/         
          echo "/home/runner/work/_actions:"
