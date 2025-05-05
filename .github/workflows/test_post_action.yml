@@ -13,6 +13,8 @@ jobs:
           IMAGE_NAME: 'github-jfrog-postaction-teting:1'
           JFROG_CLI_BUILD_PROJECT: carmit-prj-1   
     steps:
+      - name: Checkout the repository    
+        uses: actions/checkout@v4
       - name: Install jfrog cli
         id: setup-cli
         uses: jfrog/setup-jfrog-cli@v4
