@@ -1,0 +1,25 @@
+name: test_action_post_event
+on: [push]
+permissions:
+  actions: read # for detecting the Github Actions environment.
+  contents: read
+  id-token: write
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+      - name: Install jfrog cli
+        id: setup-cli
+        uses: jfrog/setup-jfrog-cli@v4
+        env:
+          JF_URL: https://${{ vars.ARTIFACTORY_URL }}
+        with:
+         oidc-provider-name: jfrog-github-oidc
+
+  
+      - name: test post event
+          id: test-post
+          uses: carmithersh/test_post_action@main
+          with:
+            create-evidence: false
