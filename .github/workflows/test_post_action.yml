@@ -17,9 +17,8 @@ jobs:
         with:
          oidc-provider-name: jfrog-github-oidc
 
-  
       - name: test post event
-          id: test-post
-          uses: carmithersh/test_post_action@main
-          with:
-            create-evidence: false
+        id: test-post
+        uses: carmithersh/test_post_action@main
+        with:
+          create-evidence: false
