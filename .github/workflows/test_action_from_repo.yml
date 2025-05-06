@@ -5,6 +5,12 @@ permissions:
   contents: read
   id-token: write
 jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: look into filesystem
+        run: |
+         echo "Hi"
   hello_world_job:
     runs-on: ubuntu-latest
     name: A job to say hello
