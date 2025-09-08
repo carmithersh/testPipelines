@@ -79,5 +79,6 @@ jobs:
     with:
       subject-name: barber-docker-local/github-jfrog-signing-teting/2/list.manifest.json
       subject-digest: ${{ needs.hello_world_job.outputs.digest }}
+      gh-token: ${{ secrets.test_post_action_pat }}
         
       
