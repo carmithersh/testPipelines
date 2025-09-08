@@ -18,6 +18,15 @@ jobs:
       contents: read
 
     steps:
+    - name: Setup JFrog CLI
+      id: setup-cli
+      uses: jfrog/setup-jfrog-cli@v4
+      env:
+        JF_URL: https://${{ vars.ARTIFACTORY_URL }}
+      with:  
+        version: latest
+        oidc-provider-name: jfrog-github-oidc        
+        
     - name: Attest Build Provenance
       uses: actions/attest-build-provenance@v3
       with:
