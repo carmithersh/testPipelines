@@ -3,10 +3,10 @@ name: build_and_use_L3_signing
 on: [workflow_dispatch, workflow_call]
 
 env:
-  DOCKER_REPO: carmit-prj-1-carmit-docker-local
+  DOCKER_REPO: barber-docker-local
   IMAGE_NAME: github-jfrog-signing-teting
   VERSION: 2
-  JFROG_CLI_BUILD_PROJECT: carmit-prj-1
+  JFROG_CLI_BUILD_PROJECT: barber
 
 permissions:
   actions: read # for detecting the Github Actions environment.
@@ -29,13 +29,14 @@ jobs:
         uses: jfrog/setup-jfrog-cli@v4
         env:
           JF_URL: https://${{ vars.ARTIFACTORY_URL }}
+          
         with:  
           version: latest
           oidc-provider-name: jfrog-github-oidc
 
       - name: configure jfrog environment
         run: |
-          jf pip-config --repo-resolve=carmit-prj-1-carmit-python  
+          jf pip-config --repo-resolve=barber-python  
             
       - name: configure environment
         run: |                      
@@ -52,7 +53,7 @@ jobs:
 
       - name: publish python package
         run: |
-          jf rt u dist/ carmit-prj-1-carmit-python-local/example-projects/ --module=jfrog-python-example 
+          jf rt u dist/ barber-python-local/example-projects/ --module=jfrog-python-example 
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3    
@@ -76,7 +77,7 @@ jobs:
     needs: hello_world_job 
     uses: carmithersh/testPipelines/.github/workflows/create_L3_attestation.yml@main 
     with:
-      subject-name: carmit-prj-1-carmit-docker-local/github-jfrog-signing-teting/2/list.manifest.json
+      subject-name: barber-docker-local/github-jfrog-signing-teting/2/list.manifest.json
       subject-digest: ${{ needs.hello_world_job.outputs.digest }}
         
       
