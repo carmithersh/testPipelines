@@ -1,15 +1,19 @@
 name: build_and_use_L3_signing
+
 on: [workflow_dispatch, workflow_call]
+
 env:
-  DOCKER_REPO: 'carmit-prj-1-carmit-docker-local'
-  IMAGE_NAME: 'github-jfrog-signing-teting'
-  VERSION: '1'
-  JFROG_CLI_BUILD_PROJECT: carmit-prj-1   
+  DOCKER_REPO: carmit-prj-1-carmit-docker-local
+  IMAGE_NAME: github-jfrog-signing-teting
+  VERSION: 2
+  JFROG_CLI_BUILD_PROJECT: carmit-prj-1
+
 permissions:
   actions: read # for detecting the Github Actions environment.
   contents: read
   id-token: write
   attestations: write
+
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
@@ -67,12 +71,12 @@ jobs:
           push: true
           platforms: linux/amd64, linux/arm64
           tags: ${{ vars.ARTIFACTORY_URL }}/${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}      
-          
+
   call-reusable:
-      needs: hello_world_job 
-      uses: carmithersh/testPipelines/.github/workflows/sign-artifact.yml@main 
-      with:
-        subject-name: ${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}/${{ env.VERSION }}/list.manifest.json
-        subject-digest: ${{ needs.hello_world_job.outputs.digest }}
+    needs: hello_world_job 
+    uses: carmithersh/testPipelines/.github/workflows/sign-artifact.yml@main 
+    with:
+      subject-name: ${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}/${{ env.VERSION }}/list.manifest.json
+      subject-digest: ${{ needs.hello_world_job.outputs.digest }}
         
       
