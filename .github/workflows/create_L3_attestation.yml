@@ -2,7 +2,10 @@ name: Sign Artifact
 on:
   workflow_call:
     inputs:
-      artifact-path:
+      subject-name:
+        required: true
+        type: string
+      subject-digest:
         required: true
         type: string
 
