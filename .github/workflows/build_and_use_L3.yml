@@ -31,7 +31,8 @@ jobs:
           JF_URL: https://${{ vars.ARTIFACTORY_URL }}
           JF_PROJECT: carmit-prj-1
         with:
-         oidc-provider-name: jfrog-github-oidc
+          version: latest
+          oidc-provider-name: jfrog-github-oidc
 
       - name: configure jfrog environment
         run: |
