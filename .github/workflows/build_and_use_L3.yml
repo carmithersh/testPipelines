@@ -68,7 +68,7 @@ jobs:
           tags: ${{ vars.ARTIFACTORY_URL }}/${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}      
           
       - name: Sign Artifact
-        uses: .github/workflows/sign-artifact.yml@main 
+        uses: carmithersh/testPipelines/.github/workflows/sign-artifact.yml@main 
         with:
           subject-name: ${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}/${{ env.VERSION }}/list.manifest.json
           subject-digest: ${{ steps.build.outputs.digest }}
