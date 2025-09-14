@@ -18,10 +18,10 @@ jobs:
   hello_world_job:
     runs-on: ubuntu-latest
     name: A job to say hello   
-    outputs:
-      digest: sha256:694ba51fad8abc5c97f49ef35fb79e28b65f2438f8038c80932d38545d1ac3f6
+    outputs:          
+      digest: ${{ steps.build.outputs.digest }}      
       rt_host: ${{ vars.ARTIFACTORY_URL }}
-      image: barber-docker-local/github-jfrog-signing-teting
+      image: ${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}
     steps:
       - name: Checkout the repository    
         uses: actions/checkout@v4
