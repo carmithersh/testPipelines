@@ -19,9 +19,11 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello   
     outputs:          
-      digest: ${{ steps.build.outputs.digest }}      
+      # digest: ${{ steps.build.outputs.digest }}      
+      digest: sha256 c3149709b29b94165f1038a68957518a8fa5bb63a040d2631aaec44e210a7eba 
       rt_host: ${{ vars.ARTIFACTORY_URL }}
-      image: ${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}
+      # image: ${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}
+      image: carmit-prj-1-carmit-docker-local/my-very-cool-image
     steps:
       - name: Checkout the repository    
         uses: actions/checkout@v4
