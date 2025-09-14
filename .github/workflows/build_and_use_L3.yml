@@ -5,7 +5,7 @@ on: [workflow_dispatch, workflow_call]
 env:
   DOCKER_REPO: barber-docker-local
   IMAGE_NAME: github-jfrog-signing-teting
-  VERSION: 3
+  VERSION: 4
   JFROG_CLI_BUILD_PROJECT: barber
 
 permissions:
@@ -19,9 +19,9 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello   
     outputs:
-      digest: ${{ steps.build.outputs.digest }}
+      digest: 694ba51fad8abc5c97f49ef35fb79e28b65f2438f8038c80932d38545d1ac3f6
       rt_host: ${{ vars.ARTIFACTORY_URL }}
-      image: ${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}
+      image: barber-docker-local/github-jfrog-signing-teting
     steps:
       - name: Checkout the repository    
         uses: actions/checkout@v4
