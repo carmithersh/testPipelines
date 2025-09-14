@@ -5,7 +5,7 @@ on: [workflow_dispatch, workflow_call]
 env:
   DOCKER_REPO: barber-docker-local
   IMAGE_NAME: github-jfrog-signing-teting
-  VERSION: 2
+  VERSION: 3
   JFROG_CLI_BUILD_PROJECT: barber
 
 permissions:
