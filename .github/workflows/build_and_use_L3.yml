@@ -77,12 +77,7 @@ jobs:
           platforms: linux/amd64, linux/arm64
           tags: ${{ vars.ARTIFACTORY_URL }}/${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}      
 
-      - name: Attest Build Provenance
-        uses: actions/attest-build-provenance@v3
-        with:
-          subject-name: "oci://carmit-prj-1-carmit-docker-local/my-very-cool-image"
-          subject-digest: "sha256:c3149709b29b94165f1038a68957518a8fa5bb63a040d2631aaec44e210a7eba"
-
+  
   call-reusable:
     needs: hello_world_job 
     uses: carmithersh/carmit-testing/.github/workflows/create_L3_attestation.yml@main 
